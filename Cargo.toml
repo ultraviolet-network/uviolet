@@ -1,0 +1,44 @@
+[package]
+name = "uviolet"
+version = "0.12.0-nightly"
+authors = ["Dr Maxim Orlovsky <orlovsky@uviolet.net>"]
+description = "Post-blockchain P2P smart contracts"
+repository = "https://github.com/ultraviolet-network/uviolet"
+homepage = "https://uviolet.net"
+keywords = ["smart-contracts", "distributed-systems", "decentralized", "blockchain"]
+categories = ["cryptography::cryptocurrencies"]
+readme = "README.md"
+license = "Apache-2.0"
+edition = "2021"
+rust-version = "1.77.0"
+exclude = [".github"]
+
+[lib]
+name = "violet"
+
+[dependencies]
+amplify = "~4.8.0"
+strict_types = "~2.8.0"
+serde = { version = "1", features = ["derive"], optional = true }
+
+[features]
+default = []
+all = ["stl", "serde"]
+
+stl = []
+serde = [
+    "dep:serde",
+    "amplify/serde",
+    "strict_types/serde",
+]
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "0.2"
+rand = { version = "0.8.4", optional = true }
+getrandom = { version = "0.2", features = ["js"] }
+
+[target.'cfg(target_arch = "wasm32")'.dev-dependencies]
+wasm-bindgen-test = "0.3"
+
+[package.metadata.docs.rs]
+features = ["all"]
