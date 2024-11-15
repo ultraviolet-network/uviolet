@@ -11,7 +11,7 @@
 Ultraviolet revives P2P with client-side validation, enabling a mind-blowing TPS rate, supporting
 IoT and AI dApps, and providing trustless multichain gateways & DEX.
 
-This repository hosts command-line executables for connecting and using ultraviolet network. It also
+This repository hosts command-line executables for connecting and using Ultraviolet network. It also
 includes a set of libraries which can be used by wallet, exchange and other developers to integrate
 Ultraviolet into their products. However, for developers, we recommend to use [Ultraviolet SDK]
 (which internally uses crates from this repository, but provides language-specific bindings and
